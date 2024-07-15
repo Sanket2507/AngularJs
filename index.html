@@ -1,9 +1,22 @@
 <!DOCTYPE html>
+<html >
 <head>
-    Hello Everyonee..!!
+  <meta charset="utf-8">
+  <script src="angular-1.8.2/angular.min.js"> </script>
+    <script src="App.js"></script>
+    
+          Hello Everyonee..!!
 </head>
-
-<body>
+<body ng-App="NameCalc">
     <h1> This my first website..</h1>
+    <div ng-controller="Namer">
+      
+      <input type="text" ng-model="name" ng-keyup="displayNumeric()">
+      <div>
+      My Name is : {{name}} {{totalValue}}<!--{{name}}
+      <{sayHello()}}-->
+      </div>
+    </div>
+    
 </body>
 </html>
