@@ -1,25 +1,27 @@
-(function(){
-'use script';
-
-angular.module("NameCalc",[])
-
-.controller("Namer" , function ($scope) {
-    $scope.name = "";
-    $scope.totalValue= 0  ;
-    
-    $scope.displayNumeric=function(){
-        var totalNameValue=CalculateNumeric($scope.name);
-        $scope.totalValue=totalNameValue;
-    };
-
-    function CalculateNumeric(string){
-        var totalStringValue=0;
-        for(var i=0;i<string.length;i++){
-            totalStringValue+=string.charCodeAt(i);
+(function () {
+    'use strict';
+  
+    angular.module('LunchCheckApp', [])
+      .controller('LunchCheckController', LunchCheckController);
+  
+    LunchCheckController.$inject = ['$scope'];
+  
+    function LunchCheckController($scope) {
+      $scope.lunchItems = "Pizza";
+      $scope.message = "Default";
+  
+      $scope.checkLunch = function () {
+        if ($scope.lunchItems.trim() === "") {
+          $scope.message = "Please enter data first";
+        } else {
+          var items = $scope.lunchItems.split(',').filter(item => item.trim() !== '');
+          if (items.length <= 3) {
+            $scope.message = "Enjoy!";
+          } else {
+            $scope.message = "Too much!";
+          }
         }
-        return totalStringValue
+      };
     }
-})
-
-
-})();
+  })();
+  

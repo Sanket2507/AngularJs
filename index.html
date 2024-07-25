@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html >
+<html ng-app="LunchCheckApp">
 <head>
   <meta charset="utf-8">
+  <title>Lunch Check</title>
   <script src="angular-1.8.2/angular.min.js"> </script>
-    <script src="App.js"></script>
-    
-          Hello Everyonee..!!
+  <script src="app.js"></script>
 </head>
-<body ng-App="NameCalc">
-    <h1> This my first website..</h1>
-    <div ng-controller="Namer">
-      
-      <input type="text" ng-model="name" ng-keyup="displayNumeric()">
-      <div>
-      My Name is : {{name}} {{totalValue}}<!--{{name}}
-      <{sayHello()}}-->
-      </div>
-    </div>
-    
+<body>
+  <div ng-controller="LunchCheckController">
+    <h1>Lunch Checker</h1>
+    <input type="text" ng-model="lunchItems" placeholder="List comma-separated lunch items">
+    <button ng-click="checkLunch()">Check If Too Much</button>
+    <div class="message" ng-if="message">{{message}}</div>
+  </div>
 </body>
 </html>
